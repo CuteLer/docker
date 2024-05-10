@@ -1,0 +1,21 @@
+version: "1.0"
+services:
+    app:
+        build:
+            ./app/
+    db:
+        build:
+            ./database/
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./database/db:/var/lib/postgresql/data
+    db2:
+        image: postgres:latest
+        restart: always
+        volumes:
+            - /data/postgresql_02/:/var/lib/postgresql/data
+        environment:
+            POSTGRES_PASSWORD: secret
+        ports:
+            - "5431:5432"

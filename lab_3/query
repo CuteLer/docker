@@ -1,0 +1,2 @@
+SELECT * FROM pg_logical_slot_get_changes('replication_slot', NULL, NULL);
+SELECT * FROM pg_logical_slot_peek_changes('replication_slot', NULL, NULL);
